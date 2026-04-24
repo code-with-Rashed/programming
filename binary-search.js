@@ -1,5 +1,6 @@
 "use strict";
 
+// Binary Search Algorithm Implementation in JavaScript
 function binarySearch(arr, target) {
     let left = 0;
     let right = arr.length - 1;
@@ -19,6 +20,6 @@ function binarySearch(arr, target) {
 }
 
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const target = 70;
+const target = 7;
 const result = binarySearch(arr, target);
 console.log(result ? `Target found at index: ${result}` : `${target} not found in the array.`);
