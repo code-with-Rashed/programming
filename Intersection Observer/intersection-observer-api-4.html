@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intersection Observer Api</title>
+    <style>
+        h1 {
+            margin-bottom: 900px;
+        }
+
+        #video {
+            margin-bottom: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Intersectio Observer Api - Video Play / Pause</h1>
+    <video src="https://www.w3schools.com/tags/movie.mp4" id="video" controls></video>
+    <script>
+        const video = document.getElementById("video");
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                entries[0].target.play();
+            } else {
+                entries[0].target.pause();
+            }
+        });
+        observer.observe(video);
+    </script>
+</body>
+
+</html>

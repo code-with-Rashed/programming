@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intersection Observer Api - Image Lazy Load</title>
+    <style>
+        h1 {
+            margin-bottom: 900px;
+        }
+
+        img {
+            display: block;
+            margin-bottom: 500px;
+            width: 400px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Intersection Observer Api - Images Lazy Load</h1>
+    <img class="image" src="https://placehold.co/400x300/cccccc/969696.png?font=lato"
+        data-src="https://i.postimg.cc/X7Y1K6Pw/pexels-brunorock-18463144.jpg" alt="Image" />
+    <img class="image" src="https://placehold.co/400x300/cccccc/969696.png?font=lato"
+        data-src="https://i.postimg.cc/C1wsFjTN/pexels-ann-h-45017-33802180.jpg" alt="Image" />
+    <img class="image" src="https://placehold.co/400x300/cccccc/969696.png?font=lato"
+        data-src="https://i.postimg.cc/hPXbPDwQ/photogrammer7-cosmos-flower-1712177-1920.jpg" alt="Image" />
+    <script>
+        const images = document.querySelectorAll(".image");
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const image = entry.target;
+                    image.src = image.dataset.src;
+                    observer.unobserve(image);
+                }
+            });
+        }, {
+            root: null,
+            // scrollMargin:"100px",
+            threshold: 0.5,
+        });
+        images.forEach((image) => observer.observe(image));
+    </script>
+</body>
+
+</html>
