@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Propagation</title>
+    <link href="./style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1>Event Bubbling</h1>
+    <div class="parent-component">
+        Parent Component
+        <div class="child-component">
+            Child Component
+            <button class="bubble-button">Event Bubbling</button>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <h1>Event Capturing</h1>
+    <div class="first-component">
+        First Component
+        <div class="second-component">
+            Second Component
+            <button class="capture-button">Event Capturing</button>
+        </div>
+    </div>
+    <script src="./event-propagation.js"></script>
+</body>
+
+</html>
