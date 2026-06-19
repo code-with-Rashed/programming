@@ -45,3 +45,28 @@ function anagramString(str1, str2) {
 anagramString("listen", "silent"); // true
 anagramString("hello", "world");  // false
 anagramString("Appel", "Papel");  // true
+
+// approach : 3
+function isAnagramString(str1, str2) {
+    const string1 = str1.toLowerCase();
+    const string2 = str2.toLowerCase();
+    if (string1.length !== string2.length) {
+        return false;
+    }
+
+    let store = {};
+
+    for (let letter of string1) {
+        store[letter] = (store[letter] || 0) + 1;
+    }
+
+    for (let letter of string2) {
+        if (!store[letter]) {
+            return false;
+        }
+        store[letter] -= 1;
+    }
+    return true;
+}
+isAnagramString("Appel", "Papel"); // true
+isAnagramString("hello", "world");  // false
